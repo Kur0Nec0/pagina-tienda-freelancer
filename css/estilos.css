@@ -1,0 +1,198 @@
+/* BOX SIING Paul Irish */
+html {
+    font-size: 62.5%; /*Habilitamos los rems*/
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/*Body*/
+body {
+    background-color: var(--morado_prim);
+    line-height: 2;
+    font-size: 2rem;
+}
+
+
+/*-------------------------------------------- GLOBALES -----------------------------------------*/
+
+h1 {
+    color: var(--amarillo_sec);
+    text-align: center;
+    font-size: 4rem;
+    font-family: var(--fuente_principal);
+}
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+/*Contenedor*/
+.contenedor {
+    max-width: 100rem;
+    width: 95%;
+    margin: 0 auto;
+}
+
+/*Imagenes*/
+img {
+    max-width: 100%;
+}
+
+/*-------------------------------------------- UTILIDADES -----------------------------------------*/
+
+/*Variables*/
+:root {
+    --fuente_principal: 'Staatliches', cursive;
+
+    --morado_prim: #9c27b0;
+    --morado_prim_osc: #89119d;
+    --amarillo_sec: #ffce00;
+}
+
+/*-------------------------------------------- DEMAS -----------------------------------------*/
+
+/*Header*/
+.header {
+    display: grid;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+/*Barra de navegacion*/
+.barra {
+    background-color: var(--morado_prim_osc);
+    padding: 1rem 0;
+}
+.barra .navegacion {
+    display: grid; /*Habilitamos el grid*/
+    grid-template-columns: repeat(2, 20rem); /*Crea 2 columnas. Para usar repeat se debe colocar 1- numero de veces a repetir, 2- tamaño de la columna*/
+    grid-column-gap: 1rem; /*Separacion entre las columnas creadas*/
+    justify-content: center;
+}
+.barra .navegacion a {
+    font-family: var(--fuente_principal);
+    font-size: 3rem;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+.barra .navegacion a:hover {
+    color: var(--amarillo_sec);
+}
+
+/*Lista de productos*/
+.lista-productos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3rem;
+}
+@media (min-width: 768px /*Media query se aplicara cuando la pantalla sea de un minimo de 768px*/) {
+    .lista-productos {
+        grid-template-columns: repeat(3, 1fr); /*1fr = 1 fraccion*/
+    }
+}
+.producto {
+    background-color: var(--morado_prim_osc);
+    padding: 1rem;
+}
+.contenido-producto p {
+    font-family: var(--fuente_principal);
+    color: white;
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 3rem;
+}
+.contenido-producto .titulo {
+    font-size: 4rem;
+}
+.contenido-producto .precio {
+    font-size: 2.8rem;
+    color: var(--amarillo_sec);
+}
+.grafico {
+    min-height: 30rem;
+    background-size: cover; /*Que la imagen se vea completa*/
+    background-position: center center; /*Centrar imagen*/
+}
+.grafico-1 {
+    background-image: url(../img/grafico1.jpg);
+    grid-row: 2 / 3; /*Se utiliza para colocar una imagen en una fila del grid previamente creado (de la fila 2 hasta a 3)*/
+    grid-column: 1 / 3; /*Se utiliza para colocar una imagen en una columna del grid previamente creado (de la columna 2 hasta a 3)*/
+}
+.grafico-2 {
+    background-image: url(../img/grafico2.jpg);
+    grid-row: 7 / 8; /*De fila 7 a fila 8*/
+    grid-column: 1 / 3; /*De columna 1 a columna 3*/
+}
+@media (min-width: 768px /*Media query se aplicara cuando la pantalla sea de un minimo de 768px*/) {
+    .grafico-2 {
+        grid-row: 4 / 5; /*De fila 4 a fila 5*/
+        grid-column: 2 / 4; /*De columna 2 a columna 4*/
+    }
+}
+
+/*Pagina sobre nosotros*/
+.contenedor-informacion {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 768px) {
+    .contenedor-informacion {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 2rem;
+    } 
+}
+
+/*Footer*/
+.footer {
+    background-color: var(--morado_prim_osc);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+.derechos-autor {
+    font-family: var(--fuente_principal);
+    color: white;
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+/*Descripcion de producto*/
+.pedido {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 6rem);
+    grid-gap: 1rem;
+}
+.pedido option{
+    color: black;
+}
+.campo {
+    background-color: transparent;
+    border: .5rem solid white;
+    font-family: var(--fuente_principal);
+    font-size: 3rem;
+    padding: 1rem;
+    width: 100%;
+    color: white;
+}
+.talla {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    grid-column: 1 / 3;
+}
+.boton {
+    background-color: var(--amarillo_sec);
+    font-size: 2rem;
+    font-family: var(--fuente_principal);
+    border: none;
+    transition: background-color .3s ease;
+    grid-column: 1 / 4;
+}
+.boton:hover {
+    cursor: pointer;
+    background-color: #c29b00;
+}
